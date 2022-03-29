@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Consultas Ciencias Humanas</title> 
+    <style>
+        .container{
+            max-width: 900px;
+
+        }
+    </style>
+  </head>
+  <body>
+      <div class="container"> 
+          <div class="shadow-lg pb-3 mb-5 bg-body rounded">
+              <h4>Eelementos facilitados</h4>
+              <form action="/crear" method="POST"> 
+                  <div class="col-md-6">
+                    <label for="nombre" class="form-label">nombre</label>
+                    <input id="nombre" name="nombre" type="text" class="form-control" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="fecha" class="form-label">fecha</label> 
+                    <input id="fecha" name="fecha" type="text" class="form-control" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="salon" class="form-label">salon</label>
+                    <input id="salon" name="salon" type="number" class="form-control" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="escuela" class="form-label">escuela</label>
+                    <input id="escuela" name="escuela" type="text" class="form-control" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="elemento" class="form-label">elemento</label>
+                    <input id="elemento" name="elemento" type="text" class="form-control" required>
+                  </div> 
+                  <button type="submit" class = "w-100 btn btn-guardar btn-lg"> <i class="bi bi-save"></i> Registrar</button>
+
+              </form>
+
+
+
+          </div>
+          <table id="tablaElementos" class="table mt-7">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Salón</th>
+                    <th>Escuela</th>
+                    <th>Elemento</th>
+                    <th>Acciones</th>
+  
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <% elementos.forEach( (elemento) => { %>  
+                    <tr>
+                        <td><%= elemento._id %></td>
+                        <td><%= elemento.nombr e%></td>
+                        <td><%= elemento.fecha %></td>
+                        <td><%= elemento.salon %></td>
+                        <td><%= elemento.escuela %></td>
+                        <td><%= elemento.elemento %></td>  
+                        <td>
+                            <a type="button" class="btnEditar btn btn-outline-primary bi bi-pencil"></a>
+                            <a href="/borrar/<%= elementos._id%>" class="btn btn-outline-danger bi bi-trash"></a>
+                        </td>
+                    </tr>
+                <%  }) %> 
+            </tbody> 
+          </table>
+
+
+          
+
+          
+
+
+      </div>
+    
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    
+  </body>
+</html>
